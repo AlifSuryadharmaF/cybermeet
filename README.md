@@ -1,2 +1,0 @@
-# cybermeet
-Aplikasi Cyber Meet
