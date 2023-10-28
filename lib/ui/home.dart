@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '/models/screen_arguments.dart';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -13,6 +12,8 @@ class _MyAppState extends State<HomePage> {
   int _currentIndex = 0;
 
   double iconSize = 30.0; // Ukuran ikon yang diinginkan
+
+  TextStyle whiteTextStyle = TextStyle(color: Colors.white); // Tambahkan ini
 
   @override
   Widget build(BuildContext context) {
@@ -63,8 +64,7 @@ class _MyAppState extends State<HomePage> {
                             // Tindakan ketika tombol rumah ditekan
                           },
                         ),
-                        Text("Jadwalkan",
-                            style: TextStyle(color: Colors.black)),
+                        Text("Jadwalkan", style: whiteTextStyle),
                       ],
                     ),
                     Column(
@@ -76,11 +76,10 @@ class _MyAppState extends State<HomePage> {
                             height: iconSize,
                           ),
                           onPressed: () {
-                            // Tindakan ketika tombol pengaturan ditekan
+                            Navigator.pushNamed(context, '/bergabung');
                           },
                         ),
-                        Text("Bergabung",
-                            style: TextStyle(color: Colors.black)),
+                        Text("Bergabung", style: whiteTextStyle),
                       ],
                     ),
                     Column(
@@ -95,7 +94,7 @@ class _MyAppState extends State<HomePage> {
                             Navigator.pushNamed(context, '/lainnya');
                           },
                         ),
-                        Text("Lainnya", style: TextStyle(color: Colors.black)),
+                        Text("Lainnya", style: whiteTextStyle),
                       ],
                     ),
                   ],
@@ -107,17 +106,19 @@ class _MyAppState extends State<HomePage> {
               ),
               ListTile(
                 leading: Image.asset('assets/images/jadwal.png'),
-                title:
-                    Text("Webinar EDU 207 - Tips to Start a Freelance Career"),
-                subtitle: Text("Jumat 16.00 - 17.00"),
+                title: Text(
+                    "Webinar EDU 207 - Tips to Start a Freelance Career",
+                    style: whiteTextStyle),
+                subtitle: Text("Jumat 16.00 - 17.00", style: whiteTextStyle),
                 onTap: () {
                   // Tindakan ketika item 1 dipilih
                 },
               ),
               ListTile(
                 leading: Image.asset('assets/images/jadwal.png'),
-                title: Text("Perancangan Aplikasi Bergerak"),
-                subtitle: Text("Senin 07.00 - 10.00"),
+                title: Text("Perancangan Aplikasi Bergerak",
+                    style: whiteTextStyle),
+                subtitle: Text("Senin 07.00 - 10.00", style: whiteTextStyle),
                 onTap: () {
                   // Tindakan ketika item 2 dipilih
                 },
@@ -126,12 +127,6 @@ class _MyAppState extends State<HomePage> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (int index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
           backgroundColor: Colors.purple,
           items: [
             BottomNavigationBarItem(
