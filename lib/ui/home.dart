@@ -32,7 +32,7 @@ class _MyAppState extends State<HomePage> {
           ],
         ),
         body: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
@@ -127,8 +127,22 @@ class _MyAppState extends State<HomePage> {
           ),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (int index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
           backgroundColor: Colors.purple,
           items: [
+            BottomNavigationBarItem(
+              icon: Image.asset(
+                'assets/images/home.png',
+                width: iconSize, // Mengatur ukuran ikon
+                height: iconSize,
+              ),
+              label: 'Beranda',
+            ),
             BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/images/baru.png',
