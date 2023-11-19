@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/event.dart';
+import 'package:http/http.dart' as http;
+import '../api/api_event.dart';
+import 'dart:convert';
+import 'dart:async';
 
 class HomePage extends StatefulWidget {
   final String title;
@@ -12,6 +17,13 @@ class _MyAppState extends State<HomePage> {
   int _currentIndex = 0;
   double iconSize = 30.0;
   TextStyle whiteTextStyle = TextStyle(color: Colors.white);
+
+  late Future<List<Event>> _events;
+  @override
+  void initState() {
+    super.initState();
+    _events = ApiEvent().listOfEvent();
+  }
 
   @override
   Widget build(BuildContext context) {
