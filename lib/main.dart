@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'ui/bergabung.dart';
+import 'ui/bergabung_page.dart';
 import 'ui/with_data_page.dart';
-import 'ui/home.dart';
-import 'ui/lainnya.dart';
-import 'ui/preview.dart';
+import 'ui/home_page.dart';
+import 'ui/lainnya_page.dart';
+import 'ui/preview_page.dart';
 
 void main() {
   runApp(const MyApp());
